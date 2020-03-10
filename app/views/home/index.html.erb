@@ -1,0 +1,48 @@
+
+<p id="notice"><%= notice %></p>
+<h1>This is home page</h1>
+<div>
+    <h5>form_with</h5>
+    <%= form_with do %>
+    Form contents
+    <% end %>
+    <br />
+
+    <h5>Generic Search form</h5>
+    <%= form_with(url: "/search", method: "get") do %>
+        <%= label_tag(:search_text, "Search for:") %>
+        <%= text_field_tag(:search_text) %>
+        <%= submit_tag("Search") %>
+    <% end %>
+    <br />
+
+    <h5>Other helpers</h5>
+    <%= form_with(url: "/search", method: "get") do %>
+    
+        <%= check_box_tag(:pet_dog) %>
+        <%= radio_button_tag(:age, "child") %>
+        <%= text_area_tag(:message, "Hi, nice site", size: "24x6") %>
+        <%= password_field_tag(:password) %>
+        <%= hidden_field_tag(:parent_id, "5") %>
+        <%= search_field(:user, :name) %>
+        <%= telephone_field(:user, :phone) %>
+        <%= date_field(:user, :born_on) %>
+        <%= datetime_local_field(:user, :graduation_day) %>
+        <%= month_field(:user, :birthday_month) %>
+        <%= week_field(:user, :birthday_week) %>
+        <%= url_field(:user, :homepage) %>
+        <%= email_field(:user, :address) %>
+        <%= color_field(:user, :favorite_color) %>
+        <%= time_field(:task, :started_at) %>
+        <%= number_field(:product, :price, in: 1.0..20.0, step: 0.5) %>
+        <%= range_field(:product, :discount, in: 1..100) %>
+
+    <% end %>
+</div>
+<br>
+
+<% content_for :header do %>
+  <div class="alert alert-primary" role="alert">
+  This is the header of home page!
+  </div>
+<% end %>
